@@ -1,4 +1,4 @@
-SOLDIR=
+SOLFILE=
 IDIR=lib
 LDIR=lib
 CC=g++
@@ -12,8 +12,8 @@ liblist: $(LDIR)/list.cc $(LDIR)/list.h
 libtree: $(LDIR)/tree.cc $(LDIR)/tree.h
 	$(CC) $(CLIBFLAGS) -o $(LDIR)/libtree.so $(LDIR)/tree.cc
 
-solution-list: $(SOLDIR)/main.cc $(IDIR)/list.h $(IDIR)/utils.h $(LDIR)/liblist.so
-	$(CC) $(CSOLFLAGS) -llist $(SOLDIR)/main.cc
+solution-list: src/$(SOLFILE).cc $(IDIR)/list.h $(IDIR)/utils.h $(LDIR)/liblist.so
+	$(CC) $(CSOLFLAGS) -llist src/$(SOLFILE).cc
 
-solution-tree: $(SOLDIR)/main.cc $(IDIR)/tree.h $(IDIR)/utils.h $(LDIR)/libtree.so
-	$(CC) $(CSOLFLAGS) -ltree $(SOLDIR)/main.cc
+solution-tree: src/$(SOLFILE.cc $(IDIR)/tree.h $(IDIR)/utils.h $(LDIR)/libtree.so
+	$(CC) $(CSOLFLAGS) -ltree src/$(SOLFILE).cc
