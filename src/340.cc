@@ -17,7 +17,6 @@ int lengthOfLongestSubstringKDistinct(string s, int k)
     for (r=0; r<s.size(); ++r) {
         ++counts[s[r]];
         if (counts.size() > k) {
-            res = max(res, r-l);
             while (counts.size() > k) {
                 c = s[l++];
                 --counts[c];
@@ -25,9 +24,10 @@ int lengthOfLongestSubstringKDistinct(string s, int k)
                     counts.erase(c);
             }
         }
+        res = max(res, r-l+1);
     }
 
-    return max(res, r-l);
+    return res;
 }
 
 int main(int argc, char** argv)
