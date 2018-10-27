@@ -8,6 +8,10 @@ using namespace std;
 
 vector<int> cheapestJump(vector<int>& A, int B)
 {
+    // pay attention that the result should be lexicographically smallest
+    // thus using len to keep track of the length of the current path
+    // always use the longest path in case of equal coins
+
     vector<int> dp(A.size(), INT_MAX), last(A.size(), -1), len(A.size(), 0), res;
 
     dp[0] = 0;
@@ -24,8 +28,6 @@ vector<int> cheapestJump(vector<int>& A, int B)
                 len[i] = len[i-k] + 1;
             }
         }
-
-        printf("%d: dp[i]=%d, last[i]=%d\n", i, dp[i], last[i]);
     }
 
     if (last.back() == -1)
