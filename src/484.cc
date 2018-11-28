@@ -6,15 +6,21 @@
 
 using namespace std;
 
-vector<int> findPermutation(string s)
+int findMaxConsecutiveOnes(vector<int>& nums)
 {
-    vector<int> res;
+    int NF, F, res;
 
-    for (int i=0,j=0; i<s.size()+1; ++i) {
-        if (s[i] == 'I' || i == s.size()) {
-            for (j=i+1; res.size()<i+1; --j)
-                res.push_back(j);
+    NF = F = res = 0;
+
+    for (int n : nums) {
+        if (n == 0) {
+            F = NF + 1;
+            NF = 0;
+        } else {
+            ++NF;
+            ++F;
         }
+        res = max(res, F);
     }
 
     return res;
@@ -22,9 +28,9 @@ vector<int> findPermutation(string s)
 
 int main(int argc, char** argv)
 {
-    vector<int> res = findPermutation(argv[1]);
+    vector<int> test_case = {0};
 
-    utils::printContainer(res.begin(), res.end());
+    cout << findMaxConsecutiveOnes(test_case) << endl;
 
     return 0;
 }
