@@ -15,5 +15,8 @@ libtree: $(LDIR)/tree.cc $(LDIR)/tree.h
 solution-list: src/$(SOLFILE).cc $(IDIR)/list.h $(IDIR)/utils.h $(LDIR)/liblist.so
 	$(CC) $(CSOLFLAGS) -llist src/$(SOLFILE).cc
 
-solution-tree: src/$(SOLFILE.cc $(IDIR)/tree.h $(IDIR)/utils.h $(LDIR)/libtree.so
+solution-tree: src/$(SOLFILE).cc $(IDIR)/tree.h $(IDIR)/utils.h $(LDIR)/libtree.so
 	$(CC) $(CSOLFLAGS) -ltree src/$(SOLFILE).cc
+
+solution: src/$(SOLFILE).cc
+	$(CC) $(CSOLFLAGS) src/$(SOLFILE).cc
