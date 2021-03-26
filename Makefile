@@ -2,7 +2,7 @@ SOLFILE=
 IDIR=lib
 LDIR=lib
 CC=g++
-CFLAGS=-std=c++11 -Wall
+CFLAGS=-std=c++17 -Wall
 CSOLFLAGS=$(CFLAGS) -I$(IDIR) -L$(LDIR)
 CLIBFLAGS=$(CFLAGS) -shared -fPIC
 
